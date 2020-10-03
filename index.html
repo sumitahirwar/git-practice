@@ -5,10 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TODO</title>
     <link rel="stylesheet" href="app.css" />
+    <script src="app1.js" defer></script>
   </head>
   <body>
-    <div id="app"></div>
+    <!-- Trigger/Open The Modal -->
+    <button id="myBtn">Add New Todo</button>
 
-    <script src="app.js"></script>
+    <!-- The Modal -->
+    <div id="myModal" class="modal" >
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <!-- <input type="text" id="title" name="title"> -->
+
+        <label><b>Title</b></label>
+        <input type="text" placeholder="Enter title" name="title" />
+        <label><b>Description</b></label>
+        <input type="text" placeholder="Enter Description" name="desc" />
+        <button type="submit" id="addBtn">Add Todo</button>
+      </div>
+    </div>
+
+    <div>
+        <ol id="todo-list"> </ol>
+    </div>
+
+   <!--  <div class="card">
+      <div class="container">
+      </div>
+    </div> -->
+
   </body>
 </html>

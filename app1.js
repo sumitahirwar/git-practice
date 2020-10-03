@@ -1,5 +1,42 @@
+// const dv1 = document.getElementById('app');
+// const  x = document.createElement("OL");
+
+//  Creating 'ol' object
+
+//  var g = document.createElement("OL");
+
+// //  g.setAttribute("id", "GFG");
+// document.body.appendChild(g);
+
+//  var x = document.createElement("LI");
+//  var y = document.createTextNode("geeks");
+
+//  x.appendChild(y);
+// g.appendChild(x);
+
+//  var w = document.createElement("LI");
+//  var f = document.createTextNode("sudo");
+//  w.appendChild(f);
+//  document.getElementById("GFG").appendChild(w);
+
+// const ol = document.createElement("ol");
+// document.getElementById("app1").append(ol);
+
+// const li = document.createElement("li");
+// const li2 = document.createElement("li");
+// const text1 = document.createTextNode("sudo")
+// const text2 = document.createTextNode("elements")
+// li.append(text1)
+// li2.append(text2)
+
+// ol.append(li)
+// ol.append(li2)
+
 const addTodoModal = document.getElementById('myModal');
 const userInputs = addTodoModal.querySelectorAll('input');
+
+//console.log(addTodoModal.querySelectorAll("input")+ "sumit ");
+// Get the modal
 
 const toDoListItems = [];
 
@@ -27,8 +64,8 @@ window.onclick = function (event) {
     modal.style.display = 'none';
   }
 };
-
 // let newModalEl,button ;
+
 const renderNewModalEl = (id, title, desc) => {
   const ol = document.getElementById('todo-list');
   const newModalEl = document.createElement('li');
@@ -37,28 +74,32 @@ const renderNewModalEl = (id, title, desc) => {
 
   const button = document.createElement('button');
   button.innerHTML = 'Delete ToDo';
-  button.setAttribute('id', 'delete');
+  //button.setAttribute('id', 'delete');
   ol.append(button);
 
-  console.log(id + ' renderf id');
-  
+ 
   button.addEventListener(
     'click',
     (deleteListHandle = () => {
-     
+    
       let arrayId;
       toDoListItems.map(function (el) {
+        console.log(el.id + ' arrayId in mp[');
         arrayId = el.id;
+        // debugger;
+        // array [{id=6,item,desc},{id1,item,desc},{id5,item,desc},{id9,item,desc}]
         if(id === arrayId){
-            toDoListItems.splice(arrayId,1);}
+            toDoListItems.splice(id,1);
+        
+      console.log(arrayId + ' arrayId id');
+      console.log(id + ' renderf id');}
       });
-      console.log(arrayId + ' array id');
-   
+    
       ol.removeChild(newModalEl);
       ol.removeChild(button);
       console.log(toDoListItems);
 
-    
+      // }
     })
   );
 };
@@ -71,15 +112,17 @@ const addListHandler = () => {
     alert('please enter a valid title and desc');
   } else {
     const newTodo = {
-      id: Math.random().toString,
+      id: Math.random().toString(),
       title: title,
       desc: desc,
     };
     toDoListItems.push(newTodo);
 
+    // console.log(toDoListItems)
     renderNewModalEl(newTodo.id, newTodo.title, newTodo.desc);
   }
 };
+
 
 
 const addBtn = document.getElementById('addBtn');
